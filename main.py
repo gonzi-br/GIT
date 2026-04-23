@@ -42,6 +42,7 @@ while continuar != 0:
         cargarOrden(orden, id_Maq, team, sector, tecAsignado, fechaProg, horaInicio)
         lista_Ordenes.append(orden)
         print("orden registrada con exito")
+        print(verOrden(orden))
         
         
         
@@ -66,6 +67,7 @@ while continuar != 0:
         except ValueError:  
             print("valor ingresado incorrecto")
             continue
+        
         
     
     elif opc == 4:
