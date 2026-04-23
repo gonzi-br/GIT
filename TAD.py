@@ -7,7 +7,25 @@
 #fechaProg, fecha programada para la orden
 #horaInicio, horario de inicio de la orden
 
+#obtener cada dato para cada orden, con su respectiva posicion en la lista
 
+def obtenerId(orden):
+    return orden[0]
+
+def obtenerTeam(orden):
+    return orden[1]
+
+def obtenerSector(orden):
+    return orden[2]
+
+def obtenerTecAsignado(orden):
+    return orden[3]
+
+def obtenerFechaProg(orden):
+    return orden[4]
+
+def obtenerHoraInicio(orden):
+    return orden[5]
 
 #---para inciso 1---#
 

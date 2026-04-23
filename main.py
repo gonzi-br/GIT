@@ -75,7 +75,8 @@ while continuar != 0:
         
     
     elif opc == 5:
-        pass
+        print("reprogramar tareas")
+        
     
     elif opc == 6:
         pass
