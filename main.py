@@ -53,6 +53,10 @@ while continuar != 0:
         except ValueError:  
             print("valor ingresado incorrecto")
             continue
+        for id in lista_Ordenes:
+            if id_Maq == id["id_Maq"]:
+                print(verOrden(id))
+        print("ingrese nuevo cronograma\n")
         nuevaFecha = input("ingrese la nueva fecha programada: ")
         nuevaHora = input("ingrese el nuevo horario de inicio: ")
         if modificarCronograma(lista_Ordenes, id_Maq, nuevaFecha, nuevaHora):
@@ -67,9 +71,17 @@ while continuar != 0:
         except ValueError:  
             print("valor ingresado incorrecto")
             continue
+        for id_m in lista_Ordenes:
+            if id_Maq == id_m["id_Maq"]:
+                print(verOrden(id_m))
+        confirmar = int(input("desea cancelar orden?) |0 no - 1 si|: "))
+        if confirmar == 1:
+            eliminarTarea(lista_Ordenes, id_Maq)
+            print("orden cancelada exitosamente...")
+        elif confirmar == 0:
+            print("orden no cancelada")
+                        
         
-        
-    
     elif opc == 4:
         mostrarOrdenes(lista_Ordenes)
         
