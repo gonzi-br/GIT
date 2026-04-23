@@ -55,7 +55,7 @@ def verOrden(ord):
 #sirve para modificar el cronograma de alguna tarea, buscando el id, y cambiandole la fecha nueva y/o hora
 def modificarCronograma(listaOrd, id_Maq, nuevaFecha, nuevaHora):
     for orden in listaOrd:
-        if orden[0] == id_Maq:
+        if obtenerId(orden) == id_Maq:
             orden[4] = nuevaFecha
             orden[5] = nuevaHora
             return True
@@ -68,7 +68,7 @@ def modificarCronograma(listaOrd, id_Maq, nuevaFecha, nuevaHora):
 #sirve para eliminar una tarea
 def eliminarTarea(listaOrd, id_Maq):
     for orden in listaOrd:
-        if orden[0] == id_Maq:
+        if obtenerId(orden) == id_Maq:
             listaOrd.remove(orden)
             return True
     return False
@@ -91,6 +91,7 @@ def mostrarOrdenes(listaOrd):
 def cambiarFecha(orden, nuevaFecha):
     orden[4] = nuevaFecha
     
+    
 
 
 #---para inciso 6---# este fue el q menos entendi y no sabria como hacerlo
@@ -99,41 +100,47 @@ def depuracion():
     pass
 
 
+#buscar orden por id, equipo, sector, tecnico asignado, fecha programada o horario de inicio
+
 def buscarMaquina(listaOrd, id_Maq):
     for orden in listaOrd:
-        if orden[0] == id_Maq:
+        if obtenerId(orden) == id_Maq: 
             return orden
     return None
 
 def buscarTecnico(listaOrd, tecAsignado):
     for orden in listaOrd:
-        if orden[3] == tecAsignado:
+        if obtenerTecAsignado(orden) == tecAsignado:  
             return orden
     return None
 
 def buscarEquipo(listaOrd, team):
     for orden in listaOrd:
-        if orden[1] == team:
+        if obtenerTeam(orden) == team:  
             return orden
     return None
 
 def buscarSector(listaOrd, sector):
     for orden in listaOrd:
-        if orden[2] == sector:
+        if obtenerSector(orden) == sector:  
             return orden
     return None
 
 def buscarFecha(listaOrd, fechaProg):
     for orden in listaOrd:
-        if orden[4] == fechaProg:
+        if obtenerFechaProg(orden) == fechaProg:
             return orden
     return None
 
 def buscarHora(listaOrd, horaInicio):
     for orden in listaOrd:
-        if orden[5] == horaInicio:
+        if obtenerHoraInicio(orden) == horaInicio:  
             return orden
     return None
 
-def buscarOrden():
-    pass
+def buscarOrden(listOrd, orden):
+    for ord in listOrd:
+        if ord == orden:
+            return ord
+    return None
+    
