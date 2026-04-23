@@ -80,3 +80,42 @@ def cambiarFecha(orden, nuevaFecha):
 def depuracion():
     pass
 
+
+def buscarMaquina(listaOrd, id_Maq):
+    for orden in listaOrd:
+        if orden[0] == id_Maq:
+            return orden
+    return None
+
+def buscarTecnico(listaOrd, tecAsignado):
+    for orden in listaOrd:
+        if orden[3] == tecAsignado:
+            return orden
+    return None
+
+def buscarEquipo(listaOrd, team):
+    for orden in listaOrd:
+        if orden[1] == team:
+            return orden
+    return None
+
+def buscarSector(listaOrd, sector):
+    for orden in listaOrd:
+        if orden[2] == sector:
+            return orden
+    return None
+
+def buscarFecha(listaOrd, fechaProg):
+    for orden in listaOrd:
+        if orden[4] == fechaProg:
+            return orden
+    return None
+
+def buscarHora(listaOrd, horaInicio):
+    for orden in listaOrd:
+        if orden[5] == horaInicio:
+            return orden
+    return None
+
+def buscarOrden():
+    pass
