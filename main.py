@@ -28,16 +28,49 @@ while continuar != 0:
         break
     
     elif opc == 1:
-        pass
-    
+        orden = crearOrdenes()
+        try:
+            id_Maq = int(input("ingrese el id de la maquina: "))
+        except ValueError:
+            print("valor ingresado incorrecto")
+            continue 
+        team = input("ingrese el equipo encargado: ") 
+        sector = input("ingrese el sector encargado: ") 
+        tecAsignado = input("ingrese el tecnico asignado: ") 
+        fechaProg = input("ingrese la fecha programada: ")
+        horaInicio = input("ingrese el horario de inicio: ")
+        cargarOrden(orden, id_Maq, team, sector, tecAsignado, fechaProg, horaInicio)
+        lista_Ordenes.append(orden)
+        print("orden registrada con exito")
+        
+        
+        
+        
     elif opc == 2:
-        pass
+        try:            
+            id_Maq = int(input("ingrese el id de la maquina: "))
+        except ValueError:  
+            print("valor ingresado incorrecto")
+            continue
+        nuevaFecha = input("ingrese la nueva fecha programada: ")
+        nuevaHora = input("ingrese el nuevo horario de inicio: ")
+        if modificarCronograma(lista_Ordenes, id_Maq, nuevaFecha, nuevaHora):
+            print("cronograma modificado con exito")
+        else:
+            print("no se encontro la orden con el id ingresado")
+        
     
     elif opc == 3:
-        pass
+        try:            
+            id_Maq = int(input("ingrese el id de la maquina: "))
+        except ValueError:  
+            print("valor ingresado incorrecto")
+            continue
+        
     
     elif opc == 4:
-        pass
+        mostrarOrdenes(lista_Ordenes)
+        
     
     elif opc == 5:
         pass
