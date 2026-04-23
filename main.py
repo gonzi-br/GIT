@@ -23,6 +23,7 @@ while continuar != 0:
         continue
         
     if opc == 0:
+        print("finalizando programa...")
         continuar = 0
         break
     
