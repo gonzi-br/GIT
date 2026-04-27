@@ -1,5 +1,5 @@
 from TAD import *
-
+from datetime import time
 print("---INICIALIZACION DEL PROGRAMA")
 
 #VARIABLES
@@ -28,67 +28,44 @@ while continuar != 0:
         break
     
     elif opc == 1:
-        orden = crearOrdenes()
+        ordenN = crearOrdenes()
+        #cargamos los datos
+        print("cargando orden")
         try:
-            id_Maq = int(input("ingrese el id de la maquina: "))
+            id_Maq = int(input("id de la maquina: "))
         except ValueError:
             print("valor ingresado incorrecto")
-            continue 
-        team = input("ingrese el equipo encargado: ") 
-        sector = input("ingrese el sector encargado: ") 
-        tecAsignado = input("ingrese el tecnico asignado: ") 
-        fechaProg = input("ingrese la fecha programada: ")
-        horaInicio = input("ingrese el horario de inicio: ")
-        cargarOrden(orden, id_Maq, team, sector, tecAsignado, fechaProg, horaInicio)
-        lista_Ordenes.append(orden)
-        print("orden registrada con exito")
-        print(verOrden(orden))
-        
-        
-        
+            continue
+        tecnico = input("tecnico asignado: ")
+        equipo = input("equipo: ")
+        sector = input("sector: ")
+        #ingresa una fecha en string para despues convetirla con la libreria
+        fecha_str = input("Ingrese una fecha (dd/mm/yyyy): ")
+        fechaProg = time.strptime(fecha_str, "%d/%m/%Y")
+        hora_str = input("Ingrese una hora (hh:mm): ")
+        horaInicio = time.strptime(hora_str, "%H:%M")
+        cargarOrden(ordenN, id_Maq, equipo, sector, tecnico, fechaProg, horaInicio)
+        lista_Ordenes.append(ordenN)
+        print("orden cargada exitosamente")
         
     elif opc == 2:
-        try:            
-            id_Maq = int(input("ingrese el id de la maquina: "))
-        except ValueError:  
-            print("valor ingresado incorrecto")
+        print("modificando cronograma...\n")
+        try:
+            id_Maquina = int(input("id de la maquina a modificar: "))
+        except ValueError:
+            print("el tipo de dat ingresado es incorrecto")
             continue
-        for id in lista_Ordenes:
-            if id_Maq == id["id_Maq"]:
-                print(verOrden(id))
-        print("ingrese nuevo cronograma\n")
-        nuevaFecha = input("ingrese la nueva fecha programada: ")
-        nuevaHora = input("ingrese el nuevo horario de inicio: ")
-        if modificarCronograma(lista_Ordenes, id_Maq, nuevaFecha, nuevaHora):
-            print("cronograma modificado con exito")
+        
+        fecha_str = input("Ingrese la nueva fecha (dd/mm/yyyy): ")
+        nuevaFecha = time.strptime(fecha_str, "%d/%m/%Y")
+        hora_str = input("Ingrese la nueva hora (hh:mm): ")
+        nuevaHora = time.strptime(hora_str, "%H:%M")
+        
+        if modificarCronograma(lista_Ordenes, id_Maquina, nuevaFecha, nuevaHora):
+            print("cronograma modificado exitosamente")
         else:
-            print("no se encontro la orden con el id ingresado")
+            print("no se encontro la maquina con el id ingresado")
         
-    
-    elif opc == 3:
-        try:            
-            id_Maq = int(input("ingrese el id de la maquina: "))
-        except ValueError:  
-            print("valor ingresado incorrecto")
-            continue
-        for id_m in lista_Ordenes:
-            if id_Maq == id_m["id_Maq"]:
-                print(verOrden(id_m))
-        confirmar = int(input("desea cancelar orden?) |0 no - 1 si|: "))
-        if confirmar == 1:
-            eliminarTarea(lista_Ordenes, id_Maq)
-            print("orden cancelada exitosamente...")
-        elif confirmar == 0:
-            print("orden no cancelada")
-                        
         
-    elif opc == 4:
-        mostrarOrdenes(lista_Ordenes)
         
-    
-    elif opc == 5:
-        print("reprogramar tareas")
         
-    
-    elif opc == 6:
-        pass
