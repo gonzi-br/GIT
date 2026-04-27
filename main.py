@@ -27,6 +27,7 @@ while continuar != 0:
         continuar = 0
         break
     
+    #opcion 1
     elif opc == 1:
         ordenN = crearOrdenes()
         #cargamos los datos
@@ -46,8 +47,10 @@ while continuar != 0:
         horaInicio = time.strptime(hora_str, "%H:%M")
         cargarOrden(ordenN, id_Maq, equipo, sector, tecnico, fechaProg, horaInicio)
         lista_Ordenes.append(ordenN)
+        print(verOrden(ordenN))
         print("orden cargada exitosamente")
         
+    #opcion 2
     elif opc == 2:
         print("modificando cronograma...\n")
         try:
@@ -63,9 +66,31 @@ while continuar != 0:
         
         if modificarCronograma(lista_Ordenes, id_Maquina, nuevaFecha, nuevaHora):
             print("cronograma modificado exitosamente")
+            
         else:
             print("no se encontro la maquina con el id ingresado")
+    
+    #opcion 3       
+    elif opc == 3:
+        print("cancelando tarea...")
+        try:
+            id_Maquina = int(input("id de la maquina a cancelar: "))
+        except ValueError:
+            print("dato incorrecto")
+            continue
+
+        if eliminarTarea(lista_Ordenes, id_Maquina):
+            print("tarea cancelada exitosamente")
+        else:
+            print("no se encontró la máquina")
         
+    #opcion 4
+    elif opc == 4:
+        print("mostrando ordenes...")
+        mostrarOrdenes(lista_Ordenes)
         
+    #opcion 5  
+    elif opc == 5:
+        pass
         
         

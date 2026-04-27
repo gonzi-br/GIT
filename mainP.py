@@ -23,6 +23,6 @@ while continuar != 0:
         print("valor ingresado incorrecto")
         continue
 
-if opcion == 0:
-    print
+if opc == 0:
+    pass
     
