@@ -11,7 +11,7 @@ print("---INICIALIZACION DEL PROGRAMA")
 
 #VARIABLES
 continuar = 1
-lista_Ordenes = []
+cola = crearCola()
 gestion = crearGestion()
 
 while continuar != 0:
@@ -46,6 +46,7 @@ while continuar != 0:
         #crea una orden nueva
         print("---CREANDO NUEVA ORDEN---")  
         orden = crearOrdenT()
+        cola.append(orden)
         if orden is not None:
             agregarOT(gestion, orden)
             print("orden creada exitosamente")
@@ -67,6 +68,7 @@ while continuar != 0:
     
     
     elif opc == 3:
+        print("---ELIMINANDO TAREAS---")
         pass
     
     
@@ -74,6 +76,8 @@ while continuar != 0:
     
     
     elif opc == 4:
+        print("---TAREAS ACTIVAS---")
+        tamanioCola(cola)
         pass
     
     
