@@ -1,5 +1,7 @@
 from TAD import *
 from datetime import time
+from datetime import datetime
+
 print("---INICIALIZACION DEL PROGRAMA")
 
 #VARIABLES
