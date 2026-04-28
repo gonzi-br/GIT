@@ -2,6 +2,8 @@ from tadOrdenDeTrabajo import *
 from tad_gestionOT import *
 from tadCola import *
 from Fun_crearOrden import *
+from Fun_modiCronograma import *
+
 
 
 
@@ -30,12 +32,15 @@ while continuar != 0:
     
     #--------------------------------------------------------#
         
+        
     if opc == 0:
         print("finalizando...")
         continuar = 0
         break
     
+    
     #--------------------------------------------------------#
+    
     
     elif opc == 1:
         #crea una orden nueva
@@ -48,30 +53,42 @@ while continuar != 0:
         else:
             print("no se pudo crear la orden")
         
+        
     #--------------------------------------------------------#
     
     
     elif opc == 2:
-        pass
+        
+        print("---MODIFICANDO CRONOGRAMA---")
+        nuevoCronograma = cambiarCronograma(gestion)
+    
     
     #--------------------------------------------------------#
+    
     
     elif opc == 3:
         pass
     
+    
     #--------------------------------------------------------#
+    
     
     elif opc == 4:
         pass
     
+    
     #--------------------------------------------------------#
+    
     
     elif opc == 5:
         pass
     
+    
     #--------------------------------------------------------#
+    
     
     elif opc == 6:
         pass
+    
     
     #--------------------------------------------------------#
